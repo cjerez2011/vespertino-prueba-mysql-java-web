@@ -11,6 +11,37 @@ and open the template in the editor.
         <meta name="viewport" content="width=device-width">
     </head>
     <body>
-        <div>TODO write content</div>
+        
+        <h1>Celulares</h1>
+        <form action="crearCelu.do" method="post">
+        <table  align="center" border="0">
+            <tr>
+                <td>
+                    <input type="text" name="txtMarca" placeholder="Marca" required="required"/> 
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="text" name="txtModelo" placeholder="Modelo" required="required"/>
+                </td>
+            </tr>
+             <tr>
+                <td>
+                    <input type="number" name="txtPrecio" placeholder="Precio" required="required"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                     <input type="submit" value="Registrar"/>
+                </td>
+            </tr>
+            <tr>
+                    <td>
+                        <a href="listarCelus.view">Ver celulares</a>
+                    </td>
+                </tr>
+        </table>
+        </form>
+        
     </body>
 </html>
