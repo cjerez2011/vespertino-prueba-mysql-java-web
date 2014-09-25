@@ -7,7 +7,7 @@ public class Celular {
     private String modelo;
     private int precio;
     
-    
+    /*comentario*/
     public Celular(int id, String marca, String modelo, int precio) {
         this.id = id;
         this.marca = marca;
