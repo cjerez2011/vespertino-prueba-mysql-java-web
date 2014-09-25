@@ -63,7 +63,7 @@ public class ListarCelularServlet extends HttpServlet {
             
             
             
-            out.println("<a href='index.jsp'>Volver</a>");
+            out.println("<a href='index.html'>Volver</a>");
             
             out.println("</body>");
             out.println("</html>");
