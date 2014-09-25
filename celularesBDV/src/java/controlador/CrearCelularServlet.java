@@ -2,11 +2,16 @@ package controlador;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.Celular;
+import model.DAO;
 
 /**
  *
@@ -18,20 +23,21 @@ public class CrearCelularServlet extends HttpServlet {
    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-       
-        //variables que reciben lo ingresado por el usuario
-        String marca,modelo;
+        try {
+            response.setContentType("text/html;charset=UTF-8");
+            //variables que reciben lo ingresado por el usuario
+            String marca,modelo;
         int precio;
-        
-        marca = request.getParameter("txtMarca");
-        modelo = request.getParameter("txtModelo");
-        precio = Integer.parseInt(request.getParameter("txtPrecio"));
-        
-        //CLASE DAO, al implementar clase dao, agregar try-catch
-//        DAO dao = new DAO();
-//        dao.crearCelular(marca,modelo,precio);
-        request.getRequestDispatcher("index.html").forward(request, response);
+            marca = request.getParameter("txtMarca");
+            modelo = request.getParameter("txtModelo");
+            precio = Integer.parseInt(request.getParameter("txtPrecio"));
+            //CLASE DAO, al implementar clase dao, agregar try-catch
+            DAO dao = new DAO();
+            dao.crearCelular(new Celular(marca, modelo, precio));
+            request.getRequestDispatcher("index.html").forward(request, response);
+        } catch (SQLException ex) {
+            Logger.getLogger(CrearCelularServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
        
         
